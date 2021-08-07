@@ -5,9 +5,16 @@ import { Container } from './styles';
 import api from '../../services/api';
 
 interface foodProps {
-  food
+  food:{
+    id:number;
+    image:string;
+    name:string;
+    description:string;
+    price:number;
+  };
+  handleEditFood: (food:object) => void;
+  handleDelete:(food:number) => void;
 }
-
 export function Food({food,handleEditFood,handleDelete}: foodProps) {
   const [isAvailable,setIsAvailable] = useState(true);
 
