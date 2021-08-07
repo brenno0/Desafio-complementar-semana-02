@@ -4,15 +4,24 @@ import { useState } from 'react'
 import { Container } from './styles';
 import api from '../../services/api';
 
-interface foodProps {
-  food:{
+interface EditFoodResponse{
+  available:boolean,
+    description:string;
     id:number;
     image:string;
     name:string;
+    price:number;
+}
+interface foodProps {
+  food:{
+   available:boolean,
     description:string;
+    id:number;
+    image:string;
+    name:string;
     price:number;
   };
-  handleEditFood: (food:object) => void;
+  handleEditFood: (food:EditFoodResponse) => void;
   handleDelete:(food:number) => void;
 }
 export function Food({food,handleEditFood,handleDelete}: foodProps) {
